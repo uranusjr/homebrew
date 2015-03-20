@@ -6,10 +6,6 @@ class QtPods < Formula
   depends_on 'git' => :recommended
 
   def install
-    # Can't perform parallel builds just yet.
-    # See https://github.com/qt-pods/qt-pods/issues/25
-    ENV.deparallelize
-
     system "#{Formula['qt5'].bin}/qmake", "PREFIX=#{prefix}"
     system 'make'
     system 'make', 'install'
